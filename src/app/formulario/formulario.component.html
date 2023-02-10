@@ -1,0 +1,16 @@
+<form  #f="ngForm" ngNativeValidate (ngSubmit)="agregar()">
+    <div class="agregar">
+        <div class="agregar_contenedor">
+            <select class="agregar_tipo" #tipo (click)="types()" [ngClass]="{redfocus: this.type=='egr' }">
+                <option value="ing">+</option>
+                <option value="egr">-</option>
+            </select>
+            <input [ngClass]="{redfocus: this.type=='egr' }" type="text" class="agregar_descripcion"
+                placeholder="Agregar Descripción" [(ngModel)]="detail" [ngModelOptions]="{standalone: true}" required>
+            <input type="number" class="agregar_valor" placeholder="Valor" [(ngModel)]="value"
+                [ngModelOptions]="{standalone: true}" [ngClass]="{redfocus: this.type=='egr'}" required>
+            <button type="submit" class="agregar_btn"><i class="ion-ios-checkmark-outline"
+                    [ngClass]="{red: this.type=='egr' }"></i></button>
+        </div>
+    </div>
+</form>
